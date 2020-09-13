@@ -19,6 +19,10 @@ namespace makeITeasy.CarCatalog.Infrastructure.Data
                 .IsRequired()
                 .HasMaxLength(50);
 
+            entity.Property(e => e.Version)
+                .HasColumnName("version")
+                .IsRowVersion();
+
             entity.HasOne(d => d.Brand)
                 .WithMany(p => p.Cars)
                 .HasForeignKey(d => d.BrandId)

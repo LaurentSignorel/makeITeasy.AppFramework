@@ -31,6 +31,9 @@ namespace makeITeasy.CarCatalog.WebApp.Controllers
 
         public async Task<IActionResult> Index()
         {
+            var cars =
+                 await _mediator.Send(new GenericQueryCommand<Car>(
+                        new BaseCarQuery()));
             return View();
         }
 
